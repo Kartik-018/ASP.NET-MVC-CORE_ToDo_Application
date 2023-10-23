@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <!-- Font Awesome -->
+
+    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+
+    <link href="~/lib/mdb/css/mdb.min.css" rel="stylesheet" />
+    <!-- Custom styles -->
+
+    <link href="~/lib/mastercss/style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <!--Main Navigation-->
+    <header>
+        <!-- Sidebar -->
+        <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+            <div class="position-sticky">
+                <div class="list-group list-group-flush mx-3 mt-4">
+
+                    @Html.ActionLink("ToDos", "Index", "ToDoItems", null, new { @class = "list-group-item list-group-item-action py-2 ripple" })
+                    @Html.ActionLink("Productivity", "Privacy", "Home", null, new { @class = "list-group-item list-group-item-action py-2 ripple" })
+                    @Html.ActionLink("Profile", "Details", "User", null, new { @class = "list-group-item list-group-item-action py-2 ripple" })
+
+                </div>
+            </div>
+        </nav>
+        <!-- Sidebar -->
+        <!-- Navbar -->
+        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+            <!-- Container wrapper -->
+            <div class="container-fluid">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Brand -->
+                <a class="navbar-brand" href="#">
+                    To-Do
+                </a>
+
+                <!-- Right links -->
+                <ul class="navbar-nav ms-auto d-flex flex-row">
+                    <li class="nav-item me-3 me-lg-0">
+                        <a class="btn btn-white" asp-action="Logout" asp-controller="User">
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+    </header>
+    <main role="main" style="margin-top: 58px;margin-right:100px">
+        <div class="container pt-4">
+            <div class="row h-100">
+                <div class=" col-11">
+                    @RenderBody()
+                </div>
+            </div>
+
+        </div>
+        <!-- todolist -->
+        <!-- todolistend -->
+    </main>
+
+
+    <!-- todolist -->
+    <!-- todolistend -->
+
+
+    <script src="~/lib/mdb/js/mdb.min.js"></script>
+    <script src="~/lib/masterjs/script.js"></script>
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/lib/Chart.js/Chart.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

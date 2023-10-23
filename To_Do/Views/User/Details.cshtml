@@ -1,0 +1,23 @@
+﻿@model To_Do.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Profile</h1>
+<hr />
+<br />
+<div>
+    <b>Username : </b>
+    @Html.DisplayFor(model => model.username)
+    <br />
+    <br />
+    <b>Email : </b>
+    @Html.DisplayFor(model => model.user_email)
+</div>
+<br />
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.user_id">Edit</a> 
+    &nbsp;|&nbsp;
+    <a asp-action="ChangePassword" asp-route-id="@Model.user_id">Change Password</a>
+</div>

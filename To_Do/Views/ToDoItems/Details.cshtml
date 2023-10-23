@@ -1,0 +1,37 @@
+﻿@model To_Do.Models.ToDoItems
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>ToDoItems</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.task_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.task_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.date_added)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.date_added)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.due_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.due_date)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.todo_id">Edit</a> 
+    &nbsp;|&nbsp;
+    <a asp-action="Index">Back to Todos</a>
+</div>

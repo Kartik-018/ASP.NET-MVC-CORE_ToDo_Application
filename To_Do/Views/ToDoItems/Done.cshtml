@@ -1,0 +1,39 @@
+﻿@model To_Do.Models.ToDoItems
+
+
+@{
+    ViewData["Title"] = "Done";
+}
+
+<h3>Are you sure you want to Mark this as done?</h3>
+<div>
+    <h4>ToDoItems</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.task_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.task_name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.date_added)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.date_added)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.due_date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.due_date)
+        </dd>
+    </dl>
+
+    <form asp-action="Done">
+        <input type="hidden" asp-for="todo_id" />
+        <input type="submit" onclick="Bar_insert" value="Mark as Done" class="btn btn-danger" />
+        &nbsp;|&nbsp;
+        <a asp-action="Index">Back to Todos</a>
+    </form>
+</div>

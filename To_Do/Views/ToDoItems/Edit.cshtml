@@ -1,0 +1,45 @@
+﻿@model To_Do.Models.ToDoItems
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ToDoItems</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="todo_id" />
+            <div class="form-group">
+                <label asp-for="task_name" class="control-label"></label>
+                <input asp-for="task_name" class="form-control" value="@Model.task_name" />
+                <span asp-validation-for="task_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="date_added" class="control-label"></label>
+                <input asp-for="date_added" class="form-control" />
+                <span asp-validation-for="date_added" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="due_date" class="control-label"></label>
+                <input asp-for="due_date" class="form-control" />
+                <span asp-validation-for="due_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br />
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

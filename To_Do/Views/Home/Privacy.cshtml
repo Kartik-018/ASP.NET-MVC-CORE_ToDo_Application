@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+
+
+
+<div class="col-sm-4 offset-sm-2">
+    <canvas id="lineChart" width="150" height="150"></canvas>
+</div>
+@section scripts{
+    <script>
+        var ctxline = document.getElementById('lineChart').getContext('2d');
+        $.ajax({
+            url: "@Url.Action("getBarData")",
+            type: "json",
+            success: function (data) {
+                var labels = [];
+                var dataresults = [];
+                $.each(data, function (index, item) {
+                    labels.push(item.x);
+                    dataresults.push(item.y);
+                });
+                console.log(labels)
+                console.log(dataresults)
+                var myLineChart = new Chart(ctxline, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'getBarData',
+                            data: dataresults,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+}

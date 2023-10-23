@@ -1,0 +1,85 @@
+﻿@model IEnumerable<To_Do.Models.ToDoItems>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    .table {
+        width: 70%;
+    }
+
+        .table td, .table th {
+            padding: .25rem;
+            vertical-align: top;
+        }
+
+    .container {
+        width: 75%;
+    }
+</style>
+
+
+        <center>
+            <div class="row">
+                <div class="col">
+                    <div class="card mx-auto" style="background-color: #eff1f2">
+                        <div class="card-body">
+                            <div class="table-responsive-sm">
+
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.task_name)
+                                            </th>
+
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.due_date)
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr>
+                                            @*<td><a asp-action="Complete"  id="@item.todo_id" asp-route-id="@item.todo_id">Edit</a> </td>*@
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.task_name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.due_date)
+                                            </td>
+                                            <td>
+                                                <a asp-action="Details" asp-route-id="@item.todo_id">Details</a>
+                                            </td>
+                                            <td>
+                                                <a asp-action="Edit" asp-route-id="@item.todo_id">Edit</a>
+                                            </td>
+                                            <td>
+                                                <a asp-action="Delete" asp-route-id="@item.todo_id">Delete</a>
+                                            </td>
+                                            <td>
+                                                <a asp-action="Done" asp-route-id="@item.todo_id">Mark as done</a>
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <p>
+                        <a asp-action="Create" class="btn btn-primary">Add Task</a>
+                    </p>
+                </div>
+            </div>
+        </center>
+
+
+
+
+
